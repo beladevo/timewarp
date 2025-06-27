@@ -1,0 +1,14 @@
+# Ignore source code (we only publish dist)
+src/
+tests/
+
+# Ignore configs and metadata
+*.log
+*.tsbuildinfo
+jest.config.js
+tsconfig.json
+.vscode/
+.idea/
+
+# Ignore coverage
+coverage/

@@ -6,10 +6,15 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "build:watch": "tsc --watch",
+    "clean": "rm -rf dist",
     "test": "jest",
     "test:watch": "jest --watch",
-    "build:watch": "tsc --watch",
-    "clean": "rm -rf dist"
+    "lint": "eslint 'src/**/*.{ts,js}'",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "version": "npm run build && git add -A dist",
+    "release": "npm publish --access public"
   },
   "repository": {
     "type": "git",
