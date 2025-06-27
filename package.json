@@ -1,6 +1,6 @@
 {
   "name": "timewarp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "🕰️ Deterministic time simulation and manipulation library for TypeScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
