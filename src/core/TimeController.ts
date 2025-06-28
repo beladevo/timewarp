@@ -45,4 +45,8 @@ export class TimeController {
   removeTimeChangeListener(callback: (newTime: number) => void): void {
     this.hooks.removeListener(callback);
   }
+
+  nowTimestamp(): number {
+    return this.state.now;
+  }
 }

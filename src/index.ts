@@ -1,3 +1,4 @@
+import { DateMocker } from "./core/DateMocker";
 import { TimeController } from "./core/TimeController";
 
 const globalController = new TimeController();
@@ -12,7 +13,10 @@ export const Timewarp = {
   onTimeChange: (cb: (newTime: number) => void) =>
     globalController.onTimeChange(cb),
   removeTimeChangeListener: (cb: (newTime: number) => void) =>
-    globalController.removeTimeChangeListener(cb)
+    globalController.removeTimeChangeListener(cb),
+  enableGlobalMocking: () => DateMocker.enable(globalController),
+  disableGlobalMocking: () => DateMocker.disable(),
+  isGlobalMockingEnabled: () => DateMocker.isEnabled(),
 };
 
 export { TimeController };
