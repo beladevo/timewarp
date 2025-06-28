@@ -1,9 +1,10 @@
+import { OriginalDate } from "./DateMocker";
 export class TimeState {
   private _frozen: boolean = false;
   private _currentTime: number = Date.now();
 
   get now(): number {
-    return this._frozen ? this._currentTime : Date.now();
+    return this._frozen ? this._currentTime : OriginalDate.now();
   }
 
   freeze(): void {

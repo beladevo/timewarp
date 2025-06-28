@@ -1,7 +1,7 @@
 import { TimeController } from "./TimeController";
 
 let isMocked: boolean = false;
-let OriginalDate: DateConstructor;
+export let OriginalDate: DateConstructor = Date;
 
 export class DateMocker {
   /**
@@ -23,22 +23,18 @@ export class DateMocker {
         return new OriginalDate(value).toString();
       }
 
-      // If called with new
       if (value === undefined) {
         return new OriginalDate(controller.nowTimestamp());
       }
       return new OriginalDate(value);
     }
 
-    // Attach static methods
     (MockedDate as any).now = (): number => controller.nowTimestamp();
     (MockedDate as any).parse = OriginalDate.parse;
     (MockedDate as any).UTC = OriginalDate.UTC;
 
-    // Keep prototype for instanceof checks
     (MockedDate as any).prototype = OriginalDate.prototype;
 
-    // Replace the global Date
     (globalThis as any).Date = MockedDate as unknown as DateConstructor;
     isMocked = true;
   }
